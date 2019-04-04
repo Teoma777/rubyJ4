@@ -1,4 +1,4 @@
-$i = 0 #score
+$s = 0 #score
 $t = 0 #tours
 
 def welcome
@@ -10,14 +10,18 @@ def lancedé
 	resultat = (rand 6 ) + 1
 	puts  "votre lancer de dé :" +  "#{resultat}"
 	if resultat.to_i < 2 
-	$i -= 1
-	puts " *MOTUS_black_ball.mp3 * Vous reculez d'une case " + "votre score est de #{$i}." + " Vous etes au tour #{$t}"  
+	$s -= 1
+	puts " *MOTUS_black_ball.mp3 * Vous reculez d'une case " + "votre score est de #{$s}." + " Vous etes au tour #{$t}"  
+	puts half_pyramid
 
 elsif resultat.to_i > 4 
-	$i += 1
-	puts "Félicitations ! Vous avancez d'une case , votre score est de #{$i}. "  + " Vous etes au tour #{$t} "
+	$s += 1
+	puts "Félicitations ! Vous avancez d'une case , votre score est de #{$s}. "  + " Vous etes au tour #{$t} "
+	puts half_pyramid
 else 
-	puts  "Vous n'avancez pas ce tout ci, votre score est de #{$i}. " + " Vous etes au tour #{$t}. "
+	puts  "Vous n'avancez pas ce tout ci, votre score est de #{$s}. " + " Vous etes au tour #{$t}. "
+	puts half_pyramid
+
 end
 end 
 
@@ -25,8 +29,22 @@ def gg
 	puts "BRAVO TU AS GAGNE TES TROP FORT !!! " 
 end
 
+def half_pyramid
+nombre = $s
+i = nombre.to_i - 1
+j = 1
+n = 1
+while n <= $s
+puts [" "].cycle(i).to_a.join('') + ["#"].cycle(j).to_a.join('') 
+i -= 1
+n += 1
+j += 1
+end
+end
+
+
 def jeu
-	while 	$i < 10 
+	while 	$s < 10 
  	lancedé
  	$t += 1
 end
