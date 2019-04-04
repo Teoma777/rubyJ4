@@ -25,4 +25,10 @@ def welcome_screen #affichant un écran de bienvenue avec des informations top s
 	puts "WELCOME STRANGER, le secret c'est que Macron c'est OSS117 "
 end
 
-login
+def perform 
+ login
+end 
+
+
+
+perform
